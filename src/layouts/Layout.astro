@@ -1,0 +1,52 @@
+---
+
+//components common
+import Container from '../components/common/container.astro';
+import Header from '../components/common/header.astro';
+import Footer from '../components/common/footer.astro'
+
+
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {title} = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Veson | {title}</title>
+  </head>
+  <body>
+    
+    <Container clases='px-3'>
+
+        <Header/>
+        <slot/>
+        <Footer/>
+
+    </Container>
+    
+    <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.0/flowbite.min.js"></script>
+
+
+    <style is:global>
+      body {
+        background-color: #fcfcfc;
+        font-family: sans-serif;
+        font-size: 18px;
+      }
+
+      header {
+        background-color: #fcfcfc;
+      }
+
+    </style>
+  </body>
+</html>
